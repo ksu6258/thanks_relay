@@ -9,7 +9,7 @@
   <!-- Google Fonts - Noto Sans KR -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght=300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Noto Sans KR', sans-serif;
@@ -31,12 +31,17 @@
       animation: floatUp 0.8s ease-out forwards;
       pointer-events: none;
     }
-    /* 그라데이션 및 일러스트용 부드러운 그림자 */
+    /* 고급스러운 입체림 그림자 */
     .soft-shadow {
-      box-shadow: 0 10px 30px -5px rgba(220, 150, 100, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 12px 35px -6px rgba(220, 140, 90, 0.08), 0 5px 15px -3px rgba(0, 0, 0, 0.02);
     }
-    .premium-gradient {
-      background: linear-gradient(135deg, #fffcf5 0%, #fff5ed 100%);
+    
+    /* [화질 개선의 핵심] 인물 사진 전용 고화질 스무딩 및 안티앨리어싱 필터 */
+    .premium-profile-img {
+      object-fit: cover;
+      image-rendering: high-quality;      /* 브라우저 최고 화질 렌더링 강제 활성화 */
+      backface-visibility: hidden;        /* 미세한 선 깨짐 방지 */
+      transform: translateZ(0);           /* GPU 물리 가속으로 윤곽선 부드럽게 보정 */
     }
   </style>
 </head>
@@ -60,24 +65,8 @@
         일상 속 <span class="text-rose-500 relative">감사 한마디<span class="absolute left-0 bottom-1 w-full h-2.5 bg-rose-100 -z-10"></span></span>, 함께 나누어요!
       </h1>
       <p class="mt-4 text-base md:text-lg text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-        '건강과 쉼이 함께하는 행복한 일터'를 만드는 2026 감사 릴레이 5월의 메시지가 도착했습니다. 따뜻한 마음을 열어 확인해 보세요. 🎁
+        '건강과 쉼이 함께하는 행복한 일터'를 만드는 **2026 감사 릴레이** 5월의 메시지가 도착했습니다. 따뜻한 마음을 열어 확인해 보세요. 🎁
       </p>
-
-      <!-- 사내 통계 한눈에 보기 -->
-      <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto mt-8 bg-white p-4 rounded-2xl shadow-sm border border-amber-100/60">
-        <div class="text-center">
-          <p class="text-xs text-slate-400 font-medium">누적 감사 전달</p>
-          <p class="text-xl font-bold text-amber-600 mt-1">128회</p>
-        </div>
-        <div class="text-center border-x border-slate-100">
-          <p class="text-xs text-slate-400 font-medium">5월 배달 메시지</p>
-          <p class="text-xl font-bold text-rose-500 mt-1">4건</p>
-        </div>
-        <div class="text-center">
-          <p class="text-xs text-slate-400 font-medium">따뜻한 소통 온도</p>
-          <p class="text-xl font-bold text-emerald-500 mt-1">99.5 °C</p>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -124,173 +113,12 @@
       <p class="text-xs text-slate-400 mt-1">다른 키워드나 팀 이름으로 검색해 보세요!</p>
     </div>
 
-    <!-- 캠페인 핵심 가이드북 -->
-    <section class="mt-16 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
-      <!-- 배경 은은한 문양 -->
-      <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-rose-500/10 rounded-full blur-3xl"></div>
-      
-      <div class="relative z-10">
-        <div class="flex items-center gap-2 mb-6">
-          <span class="text-2xl">📢</span>
-          <h2 class="text-xl md:text-2xl font-bold">감사 릴레이 캠페인, 이렇게 운영됩니다!</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- 좌측 가이드 -->
-          <div class="space-y-4">
-            <div class="flex gap-3 items-start">
-              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-500/20 text-rose-300 flex items-center justify-center font-bold text-xs mt-0.5">1</span>
-              <div>
-                <h4 class="font-semibold text-rose-300">누가 참여할 수 있나요?</h4>
-                <p class="text-sm text-slate-300 mt-1 leading-relaxed">대성에너지 전 임직원이라면 직급에 상관없이 누구나 자율적으로 참여할 수 있습니다.</p>
-              </div>
-            </div>
-            
-            <div class="flex gap-3 items-start">
-              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-500/20 text-rose-300 flex items-center justify-center font-bold text-xs mt-0.5">2</span>
-              <div>
-                <h4 class="font-semibold text-rose-300 font-medium">매끄러운 바톤 터치</h4>
-                <p class="text-sm text-slate-300 mt-1 leading-relaxed">감사 메시지를 수령하신 분은 목요일까지 다음 릴레이 주자를 선정해 HR팀에 회신해 주시면 됩니다.</p>
-              </div>
-            </div>
-
-            <div class="flex gap-3 items-start">
-              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-500/20 text-rose-300 flex items-center justify-center font-bold text-xs mt-0.5">3</span>
-              <div>
-                <h4 class="font-semibold text-rose-300 font-medium">부서 간 교류 활성화 규칙</h4>
-                <p class="text-sm text-slate-300 mt-1 leading-relaxed">더 넒은 소통을 위해 **같은 부서(팀)원은 지목할 수 없습니다.** 발신인은 철저한 익명이 보장됩니다!</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 우측 리워드 -->
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-4">
-            <h3 class="text-lg font-bold text-amber-300 flex items-center gap-1.5">
-              🎁 혜택 및 리워드 안내
-            </h3>
-            
-            <div class="space-y-3 text-sm">
-              <div class="flex justify-between items-center py-1.5 border-b border-white/5">
-                <span class="text-slate-300">주별 감사 대상자 리워드</span>
-                <span class="font-bold text-white bg-rose-500/30 px-2.5 py-0.5 rounded-md text-xs">회당 2만원 지급</span>
-              </div>
-              <div class="flex justify-between items-center py-1.5 border-b border-white/5">
-                <span class="text-slate-300">연말 최종 감사왕 (3명)</span>
-                <span class="font-bold text-amber-300 bg-amber-500/20 px-2.5 py-0.5 rounded-md text-xs">각 10만원 지급</span>
-              </div>
-              <div class="pt-1">
-                <h5 class="font-semibold text-slate-200">📖 연말 감사 스토리북 발행</h5>
-                <p class="text-xs text-slate-400 mt-1 leading-relaxed">1년간 쌓인 따뜻하고 감동적인 모든 감사 에피소드를 정성스럽게 엮어 전사 전자책(E-Book)으로 배달합니다.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 즉석 감사 메시지 템플릿 제안기 (인터랙티브 보너스 코너) -->
-    <section class="mt-8 bg-white p-6 md:p-8 rounded-3xl border border-amber-100/60 soft-shadow">
-      <div class="flex items-center gap-2 mb-4">
-        <span class="text-2xl">✍️</span>
-        <h3 class="text-lg md:text-xl font-bold text-slate-900">감사 한마디 보내고 싶은데, 글 작성이 어려우신가요?</h3>
-      </div>
-      <p class="text-sm text-slate-500 mb-6 leading-relaxed">
-        아래에서 마음에 드는 감사 컨셉을 선택해 보세요. 이름만 살짝 바꿔도 근사한 감사 메시지 초안이 자동으로 완성됩니다! 그대로 복사해서 편하게 메일로 전달하세요.
-      </p>
-
-      <!-- 템플릿 선택 버튼들 -->
-      <div class="flex flex-wrap gap-2 mb-4">
-        <button onclick="selectTemplate('help')" id="tpl-btn-help" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition border border-rose-100">
-          🤝 업무 도움 고마움형
-        </button>
-        <button onclick="selectTemplate('smile')" id="tpl-btn-smile" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 transition border border-slate-200">
-          😊 일상 미소/에너지형
-        </button>
-        <button onclick="selectTemplate('grow')" id="tpl-btn-grow" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 transition border border-slate-200">
-          🌱 배움과 든든함형
-        </button>
-      </div>
-
-      <!-- 에디터 박스 -->
-      <div class="space-y-3 bg-amber-50/30 p-4 rounded-2xl border border-amber-100/40">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-bold text-slate-500 mb-1">받는 분 성함 & 직급</label>
-            <input type="text" id="tpl-receiver" value="최도현 대리" oninput="updateTemplateDraft()" class="w-full px-3 py-1.5 text-sm rounded-lg border border-slate-200 focus:outline-none focus:border-rose-400">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-500 mb-1">받는 분 소속 팀</label>
-            <input type="text" id="tpl-dept" value="경영정보팀" oninput="updateTemplateDraft()" class="w-full px-3 py-1.5 text-sm rounded-lg border border-slate-200 focus:outline-none focus:border-rose-400">
-          </div>
-        </div>
-        
-        <div>
-          <label class="block text-xs font-bold text-slate-500 mb-1">내용 미리보기 (자유롭게 수정해 보세요)</label>
-          <textarea id="tpl-draft-text" rows="4" class="w-full p-3 text-sm bg-white rounded-xl border border-slate-200 focus:outline-none focus:border-rose-400 leading-relaxed"></textarea>
-        </div>
-
-        <div class="flex justify-between items-center pt-2">
-          <p class="text-xs text-rose-500 font-medium">※ 본인의 이름은 자동으로 안전한 익명으로 숨겨집니다!</p>
-          <button onclick="copyGeneratedDraft()" class="flex items-center gap-1.5 bg-rose-500 hover:bg-rose-600 text-white font-semibold text-xs py-2 px-4 rounded-xl transition shadow-md active:scale-95">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-            이 템플릿 복사하기
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER / SUBMISSION BANNER -->
-    <section class="mt-8 bg-gradient-to-tr from-amber-50 to-rose-50 rounded-3xl p-6 md:p-8 border border-amber-200/50 text-center relative overflow-hidden">
-      <div class="absolute -left-10 -top-10 w-32 h-32 bg-rose-200/20 rounded-full blur-2xl"></div>
-      
-      <div class="relative z-10 max-w-2xl mx-auto">
-        <span class="text-3xl mb-3 block">📬</span>
-        <h3 class="text-xl font-bold text-slate-900">당신의 소중한 동료에게 마음을 전하세요</h3>
-        <p class="text-slate-600 text-sm mt-2 leading-relaxed">
-          거창한 글이 아니어도 괜찮습니다. 단 3~5줄의 짧은 문장이라도 전해지는 진심은 동일합니다.  
-          메일 작성이 어렵다면, 담당자에게 전화나 문자 주시면 **대필 작성**도 기쁜 마음으로 지원해 드립니다!
-        </p>
-
-        <!-- 핵심 컨택 포인트 카드 -->
-        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto text-left">
-          <div onclick="copyText('ksu6258@daesung.com', '수신 이메일 주소가')" class="bg-white p-3.5 rounded-xl border border-amber-100 hover:border-rose-300 transition cursor-pointer group flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-500 group-hover:bg-rose-500 group-hover:text-white transition">
-              📧
-            </div>
-            <div>
-              <p class="text-xs text-slate-400 font-medium">이메일 접수 (클릭시 복사)</p>
-              <p class="text-xs font-bold text-slate-700 mt-0.5 group-hover:text-rose-500 transition">ksu6258@daesung.com</p>
-            </div>
-          </div>
-
-          <div class="bg-white p-3.5 rounded-xl border border-amber-100 flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-500">
-              📞
-            </div>
-            <div>
-              <p class="text-xs text-slate-400 font-medium">문의 및 대필 지원</p>
-              <p class="text-xs font-bold text-slate-700 mt-0.5">HR팀 김상욱 차장 (내선 209)</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="text-[11px] text-slate-400 mt-6">
-          이메일 제목은 편하게 <strong class="text-slate-500">[감사 릴레이] ○○팀 ○○○님께 보내는 메시지</strong> 로 작성해 주시면 가장 좋습니다.
-        </p>
-      </div>
-    </section>
-
   </main>
 
   <footer class="mt-20 text-center text-xs text-slate-400">
     <p>© 2026 대성에너지 경영지원본부 HR팀. All rights reserved.</p>
     <p class="mt-1">여러분의 따뜻한 한마디가 소중하고 긍정적인 직장 소통 문화를 만들어 나갑니다.</p>
   </footer>
-
-  <!-- TOAST ALARM BOX -->
-  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 backdrop-blur-sm text-white px-5 py-3 rounded-2xl text-xs font-medium shadow-xl opacity-0 transition-all duration-300 pointer-events-none z-50 flex items-center gap-2">
-    <span>✨</span> <span id="toast-text">텍스트가 복사되었습니다.</span>
-  </div>
 
   <!-- JavaScript logic -->
   <script>
@@ -304,6 +132,8 @@
         targetName: "최도현 대리님",
         targetDept: "경영정보팀",
         sender: "당신의 영원한 응원군, 익명의 동료로부터",
+        baseName: "최도현 대리",
+        initialImg: "최도현 대리.jpeg",
         content: "최도현 대리님께,<br><br>시스템 고도화 작업으로 한창 바쁘신 와중에도 늘 밝은 미소로 함께해주셔서 감사합니다. 2025년부터 이어진 긴 여정 동안, 여러 계열사의 목소리를 하나로 모으는 과정이 결코 쉽지 않았을 텐데 대리님이 계셔서 든든했습니다.<br><br>기술적인 간간을 메우기 위해 적극적으로 합의점을 찾아주시고, 팀의 어려움까지 세심하게 살펴주신 덕분에 큰 도움을 받았습니다. 쉽지 않은 상황에서도 중심을 잃지 않고 프로페셔널한 매너로 업무를 대하시는 모습은 동료로서 참 본받고 싶습니다.<br><br>'항상 웃으며 업무에 임하는' 대리님에 대한 좋은 기억을 제게 남겨주셔서 감사해요. 앞으로 남은 과정도 대리님과 함께라면 기분 좋게 마무리할 수 있을 것 같습니다. 늘 응원하겠습니다! 🦾",
         likes: 24,
         tags: ["시스템 고도화", "미소 천사", "협업 시너지"]
@@ -316,6 +146,8 @@
         targetName: "안민기 과장님",
         targetDept: "경산안전팀",
         sender: "감사를 전하고 싶은 든든한 동료로부터",
+        baseName: "안민기 과장",
+        initialImg: "안민기 과장.jpeg",
         content: "안민기 과장님께,<br><br>안민기 과장께서는 노사협의나 산보위의 공식적인 위치에 계신 것은 아니지만, 언제나 동료들의 목소리에 귀 기울이고 고충을 세심하게 수렴하여 회사에 잘 전달해 주시는 든든한 가교 역할을 해주셨습니다.<br><br>경산안전팀의 동료들을 위해 보여주신 따뜻한 배려와 책임감 있는 태도는 모두에게 큰 힘이 되었고, 조직이 더 건강하고 신뢰받는 방향으로 나아가는 데 중요한 밑거름이 되었습니다. 늘 감사드립니다. 🍀",
         likes: 18,
         tags: ["소통의 가교", "경산안전팀", "따뜻한 배려"]
@@ -328,6 +160,8 @@
         targetName: "정재훈 대리님",
         targetDept: "HR팀",
         sender: "건강한 내일을 함께 그리는 헬스 파트너 동료로부터",
+        baseName: "정재훈 대리",
+        initialImg: "정재훈 대리.jpg",
         content: "정재훈 대리님께,<br><br>회사 동료들의 업무적인 측면에서도 평소 많은 도움을 주시고, 개인적으로는 헬스 트레이닝으로 많은 도움을 받아 이렇게 감사 인사를 드립니다.<br><br>어렵고 복잡한 인사 업무 속에서 많이 바쁘실 텐데, 회사 직원분들이 업무적으로 많은 문의를 드려도 전문적인 지식과 성실함을 바탕으로 문제들을 잘 해결해 주시는 것이 같은 회사 직원으로서 참 든든한 것 같습니다. HR팀과 업무 협의를 할 때는 회사의 발전을 위해 고민하시고 제도 및 업무 방식의 발전을 먼저 많이 고민해 주셔서 감사했습니다.<br><br>개인적으로는 헬스를 잘 모를 때 퇴근 후 시간을 내서 알려주시고, 함께 닭갈비 철판볶음밥을 먹으며 단백질 섭취도 했던 것이 기억에 남습니다. 저 말고도 헬스 동호회 내에서도 다른 직원분들의 건강 증진을 위해서 헬스 코치(?)로 많이 도와주셔서 감사드립니다.<br><br>바쁜 회사 업무 속에 계시지만 커피 한 잔의 여유도 가지시면서 재훈 대리님 본인 건강도 잘 챙겨가며 일하시기를 바라며, 앞으로도 회사 업무 잘 해나가시기를 응원드립니다. 감사합니다. ☕",
         likes: 31,
         tags: ["인사 히어로", "체력 코치", "닭갈비 메이트"]
@@ -340,18 +174,19 @@
         targetName: "김영헌 과장님",
         targetDept: "공급기획팀",
         sender: "오랜 시간 동안 깊은 고마움을 간직해 온 동료로부터",
+        baseName: "김영헌 과장",
+        initialImg: "김영헌 과장.jpeg",
         content: "김영헌 과장님, 안녕하세요.<br><br>지난 17년 전 중부지사에서 처음 함께 근무하던 시기에, 개인적인 가정사로 인해 업무에 집중하지 못하고 힘든 시간을 보낸 적이 있었습니다. 그때 과장님께서 제 입장을 이해해 주시고 배려해 주신 덕분에 수검업무도 큰 문제 없이 잘 마무리할 수 있었습니다.<br><br>당시 과장님의 따뜻한 배려와 공감은 지금까지도 제 마음에 깊이 남아 있습니다. 상대방을 이해하고 먼저 배려하는 과장님 같은 동료가 있기에 회사도 더 좋은 방향으로 발전한다고 생각합니다.<br><br>오랜 시간이 지나도 잊지 못할 도움에 다시 한번 감사드리며, 앞으로도 늘 건강하시고 좋은 일만 가득하시길 바랍니다. 감사합니다. 💐",
         likes: 42,
         tags: ["17년 우정", "따뜻한 배려", "평생의 고마움"]
       }
     ];
 
-    // 상태 관리 변수들
     let messages = [];
     let activeTab = 'all';
     let searchQuery = '';
 
-    // 로컬 스토리지 또는 초기 배열을 통해 데이터 설정
+    // 로컬 스토리지 또는 초기 배열 설정
     function initData() {
       const saved = localStorage.getItem('daesung_thanks_campaign_likes');
       if (saved) {
@@ -365,18 +200,64 @@
       }
     }
 
+    // [고도화된 복합 자동 이미지 매칭 엔진]
+    function handleImageRetry(img, baseName, retryIndex = 0) {
+      // 띄어쓰기가 있는 원본과 띄어쓰기를 완전히 제거한 압축 형태 후보군을 모두 준비합니다.
+      const nameVariants = [
+        baseName,                      // 1. "정재훈 대리"
+        baseName.replace(/\s+/g, '')   // 2. "정재훈대리"
+      ];
+      
+      const extensions = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG', '.gif'];
+      const totalCombinations = nameVariants.length * extensions.length;
+      
+      if (retryIndex < totalCombinations) {
+        const variantIndex = Math.floor(retryIndex / extensions.length);
+        const extIndex = retryIndex % extensions.length;
+        
+        const nextSrc = nameVariants[variantIndex] + extensions[extIndex];
+        
+        img.onerror = function() {
+          handleImageRetry(img, baseName, retryIndex + 1);
+        };
+        img.src = nextSrc;
+      } else {
+        // 모든 조합 매칭 실패 시 최종 대체 이니셜 카드 출력
+        renderInitialsFallback(img);
+      }
+    }
+
+    // 이니셜 대체 아바타 그리기
+    function renderInitialsFallback(img) {
+      const name = img.getAttribute('alt') || '동료';
+      const firstLetter = name.charAt(0);
+      const gradients = [
+        'from-rose-400 to-pink-500',
+        'from-amber-400 to-orange-500',
+        'from-emerald-400 to-teal-500',
+        'from-sky-400 to-indigo-500',
+        'from-purple-400 to-fuchsia-500'
+      ];
+      
+      const index = name.charCodeAt(0) % gradients.length;
+      const gradient = gradients[index];
+
+      const container = img.parentElement;
+      const avatar = document.createElement('div');
+      avatar.className = `w-16 h-16 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-xl font-black shadow-md border-2 border-white ring-4 ring-rose-50/70 select-none shrink-0`;
+      avatar.innerHTML = `<span>${firstLetter}</span>`;
+      
+      container.replaceChild(avatar, img);
+    }
+
     // 2. 메시지 리스트 동적 렌더링
     function renderMessages() {
       const container = document.getElementById('messages-container');
       const noResults = document.getElementById('no-results');
       container.innerHTML = '';
 
-      // 필터링 적용
       const filtered = messages.filter(item => {
-        // 주차 필터링
         const matchesWeek = activeTab === 'all' ? true : item.week === activeTab;
-        
-        // 검색 필터링
         const matchesSearch = searchQuery === '' ? true : (
           item.targetName.includes(searchQuery) ||
           item.targetDept.includes(searchQuery) ||
@@ -384,7 +265,6 @@
           item.content.includes(searchQuery) ||
           item.tags.some(t => t.includes(searchQuery))
         );
-
         return matchesWeek && matchesSearch;
       });
 
@@ -395,16 +275,14 @@
         noResults.classList.add('hidden');
       }
 
-      // 카드 엘리먼트들 생성 후 주입
       filtered.forEach((item) => {
         const card = document.createElement('article');
         card.className = "bg-white rounded-3xl p-6 md:p-8 border border-slate-100 soft-shadow transition duration-300 hover:scale-[1.01] hover:border-amber-200/50 relative";
         
-        // 해시태그 문자열 구성
         const tagsHtml = item.tags.map(t => `<span class="px-2.5 py-1 bg-slate-100 text-slate-500 rounded-lg text-xs font-medium">#${t}</span>`).join(' ');
 
         card.innerHTML = `
-          <!-- 주차 & 날짜 태그 배지 -->
+          <!-- 주차 배지 -->
           <div class="flex justify-between items-center mb-4">
             <span class="inline-block text-[11px] font-bold bg-amber-500/10 text-amber-700 px-3 py-1 rounded-full border border-amber-200/30">
               ${item.week}주차 배달 (${item.date})
@@ -418,11 +296,21 @@
             <span>"${item.badge}"</span>
           </h3>
 
-          <!-- 감사 대상자 카드 바 -->
-          <div class="bg-amber-50/50 p-3 rounded-2xl flex flex-wrap justify-between items-center border border-amber-100/30 mb-4 gap-2">
-            <div>
-              <span class="text-xs font-semibold text-slate-400 block">감사 대상자</span>
-              <span class="text-sm font-bold text-slate-800">${item.targetDept} <span class="text-rose-500">${item.targetName}</span></span>
+          <!-- 감사 대상자 영역 (고해상도 최적화 카드 바 - 선명화 보정 적용) -->
+          <div class="bg-amber-50/50 p-4 rounded-2xl flex flex-wrap justify-between items-center border border-amber-100/30 mb-4 gap-4">
+            <div class="flex items-center gap-4">
+              <!-- [화질 개선 핵심] premium-profile-img 클래스 적용 및 w-16 h-16 크기 고정화로 저해상도 보완 -->
+              <img 
+                src="${item.initialImg}" 
+                alt="${item.targetName}" 
+                data-basename="${item.baseName}"
+                class="premium-profile-img w-16 h-16 rounded-full border-2 border-white shadow-md ring-4 ring-rose-50/70 shrink-0"
+                onerror="handleImageRetry(this, '${item.baseName}', 0)"
+              >
+              <div>
+                <span class="text-xs font-semibold text-slate-400 block">감사 대상자</span>
+                <span class="text-sm font-bold text-slate-800">${item.targetDept} <span class="text-rose-500 text-base">${item.targetName}</span></span>
+              </div>
             </div>
             <div class="text-right">
               <span class="text-xs font-semibold text-slate-400 block">전달 상태</span>
@@ -442,7 +330,7 @@
 
           <hr class="border-slate-100/80 my-4">
 
-          <!-- 소통 하트 버튼 및 공감 영역 -->
+          <!-- 소통 하트 버튼 -->
           <div class="flex justify-between items-center">
             <p class="text-xs text-slate-400 font-medium">이 편지가 감동적이셨다면 마음을 보태주세요!</p>
             <button onclick="handleLike(event, ${item.id})" class="flex items-center gap-1.5 bg-rose-50 hover:bg-rose-100 text-rose-500 active:scale-95 transition-all px-4 py-1.5 rounded-2xl font-bold text-xs relative">
@@ -461,8 +349,6 @@
     // 3. 필터링 컨트롤 기능
     function filterWeek(week) {
       activeTab = week;
-      
-      // 탭 액티브 스타일 클래스 세팅
       const tabs = ['all', 1, 2];
       tabs.forEach(t => {
         const btn = document.getElementById(`tab-${t}`);
@@ -472,7 +358,6 @@
           btn.className = "flex-1 md:flex-none px-4 py-2 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-800 transition-all duration-200";
         }
       });
-
       renderMessages();
     }
 
@@ -487,20 +372,15 @@
       const messageIndex = messages.findIndex(m => m.id === id);
       if (messageIndex === -1) return;
 
-      // 좋아요 수치 증가
       messages[messageIndex].likes += 1;
       
-      // 로컬 스토리지 임시 영구화 처리
       const savedLikes = {};
       messages.forEach(m => {
         savedLikes[m.id] = m.likes;
       });
       localStorage.setItem('daesung_thanks_campaign_likes', JSON.stringify(savedLikes));
 
-      // 뱃지 숫자 즉시 업데이트
       document.getElementById(`like-count-${id}`).innerText = messages[messageIndex].likes;
-
-      // 화면에 공중부양 하트 생성
       createFloatingHeart(event);
     }
 
@@ -512,112 +392,20 @@
       heart.className = 'floating-heart text-lg';
       heart.innerText = ['❤️', '💖', '🥰', '🎈', '✨'][Math.floor(Math.random() * 5)];
       
-      // 마우스/클릭 위치 및 버튼 상대 위치에 기인해 절대값 계산
       heart.style.left = `${rect.left + rect.width / 2 + window.scrollX - 10}px`;
       heart.style.top = `${rect.top + window.scrollY - 10}px`;
       
       document.body.appendChild(heart);
       
-      // 애니메이션 끝나면 돔에서 청소
       setTimeout(() => {
         heart.remove();
       }, 800);
     }
 
-    // 6. 텍스트 복사 알림 처리 (Toast)
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      const toastText = document.getElementById('toast-text');
-      toastText.innerText = message;
-      
-      toast.classList.remove('opacity-0');
-      toast.classList.add('opacity-100');
-      
-      setTimeout(() => {
-        toast.classList.remove('opacity-100');
-        toast.classList.add('opacity-0');
-      }, 2500);
-    }
-
-    function copyText(text, entityName) {
-      // 대체 클립보드 복사 기법 적용 (iFrame 등 보안 환경 커버)
-      const el = document.createElement('textarea');
-      el.value = text;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-
-      showToast(`${entityName} 복사되었습니다. 편안하게 붙여넣기 해보세요!`);
-    }
-
-    // 7. 즉석 감사 메일 메이커 로직
-    const templates = {
-      help: {
-        title: "🤝 업무 도움 고마움형",
-        badge: "업무 고도화로 바쁘신 와중에도 소중한 손길을 전해주신 동료",
-        body: "안녕하세요. 지난번 갑작스럽게 처리해야 하는 긴급 이슈로 쩔쩔매고 있었을 때, 본인의 일처럼 귀 기울여주시고 앞장서서 검토해 주셔서 정말 깊은 도움을 받았습니다. 덕분에 걱정했던 일정에 맞추어 업무를 완벽하게 마무리 지을 수 있었습니다. 힘든 상황 속에서도 찡그림 없이 든든한 등대처럼 가이드를 주셔서 참 믿음직스러웠습니다. 늘 따스하게 맞아주셔서 감사합니다!"
-      },
-      smile: {
-        title: "😊 일상 미소/에너지형",
-        badge: "지친 아침을 항상 환한 미소와 격려로 밝혀주시는 우리 부서 활력소",
-        body: "안녕하세요! 매일 아침 출근길이나 오고 가는 탕비실 복도에서 마주칠 때마다 항상 기분 좋고 맑은 미소로 안부를 건네주시는 동료님 덕분에 큰 힘을 얻고 있습니다. 가벼운 일상의 농담 속에서도 상대를 소중히 대하는 태도가 느껴져 늘 참 든든한 것 같습니다. 바쁘신 와중에도 따스함의 여유를 가지시며 건강 잘 챙기시고 행복 가득하시기를 응원합니다!"
-      },
-      grow: {
-        title: "🌱 배움과 든든함형",
-        badge: "전문적인 가이드로 올바른 방향을 제시해 주시는 나만의 소중한 멘토",
-        body: "안녕하세요! 여러 지사 및 부서의 시스템 흐름과 프로세스를 파악하는 과정에서 많은 지혜가 필요한 상태였는데, 오랜 노하우와 섬세함을 바탕으로 길을 친절하게 열어 주셔서 다시 한번 깊이 감사드립니다. 단순한 지식의 공유를 넘어, 회사가 더 발전하는 건강한 지향점에 대해 함께 고민해 주시는 자세는 동료이자 후배로서 진심으로 늘 본받고 싶습니다. 감사합니다!"
-      }
-    };
-
-    let selectedTemplateType = 'help';
-
-    function selectTemplate(type) {
-      selectedTemplateType = type;
-      
-      // 버튼들 UI 활성화 전환
-      const types = ['help', 'smile', 'grow'];
-      types.forEach(t => {
-        const btn = document.getElementById(`tpl-btn-${t}`);
-        if (t === type) {
-          btn.className = "px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-rose-500 text-white transition border border-rose-500";
-        } else {
-          btn.className = "px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 transition border border-slate-200";
-        }
-      });
-
-      updateTemplateDraft();
-    }
-
-    function updateTemplateDraft() {
-      const receiver = document.getElementById('tpl-receiver').value.trim() || "동료";
-      const dept = document.getElementById('tpl-dept').value.trim() || "해당";
-      const tpl = templates[selectedTemplateType];
-      
-      // 텍스트 변환 가공
-      const customBody = `💡 감사 대상자: ${dept} ${receiver}님\n\n"${receiver}님께,\n\n${tpl.body}"\n\n- 당신의 따뜻한 동료로부터 -`;
-      
-      document.getElementById('tpl-draft-text').value = customBody;
-    }
-
-    function copyGeneratedDraft() {
-      const txt = document.getElementById('tpl-draft-text').value;
-      
-      const el = document.createElement('textarea');
-      el.value = txt;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-
-      showToast("작성된 소중한 감사 메시지 초안이 복사되었습니다! 메일(ksu6258@daesung.com)로 보내주세요.");
-    }
-
-    // 8. 초기 구동 트리거
+    // 6. 초기 구동 트리거
     window.onload = function() {
       initData();
       renderMessages();
-      selectTemplate('help'); // 템플릿 메이커 초기 가동
     }
   </script>
 </body>
